@@ -122,3 +122,77 @@ while True:
 
     print("=============================")
 
+# List
+con = False
+line = "======================"
+n = int(input("ใส่จำนวนสินค้า = "))
+List = []
+for i in range(n):
+  x = float(input("ราคา ="))
+  List.append(x)
+
+sum = 0
+for x in List:
+  sum += x
+avg = sum / n
+
+maxy = int(max(List))
+minny = int(min(List))
+
+if maxy == minny: 
+  con = True
+
+print(line)
+print("avg = ", (avg))
+if con:
+  print("ราคาเท่ากัน =  ",min(List))
+else:
+  print("max =  ",max(List))
+  print("min =  ",min(List))
+
+print(line)
+
+
+# IF_Meter
+open, khmr, quer = False, False, False #เปิดปิดเงื่อนไข
+
+quet = input("A = ถามราคา, B = คำนวณค่ามีเตอร์ โปรดระบุ : ")
+if quet == 'A' :
+  quer = True
+elif quet == 'B':
+  khmr = True
+else:
+  print("คุณต้องใส่ A หรือ B")
+#########################################
+if quer :
+  print("\n- ระยะทาง 1 กิโลเมตรแรก คิดค่าโดยสาร 35 บาท \n- ระยะทางกิโลเมตรที่ 1 - 10 กิโลเมตรละ 5.5 บาท \n- ระยะทางกิโลเมตรที่ 10-20 กิโลเมตรละ 6.50 บาท\n- ระยะทางกิโลเมตรที่ 20-40 กิโลเมตรละ 7.50 บาท\n- ระยะทางกิโลเมตรที่ 40-60 กิโลเมตรละ 8 บาท\n- ระยะทางกิโลเมตรที่ 60-80 กิโลเมตรละ 9 บาท\n- ระยะทางเกินกว่า 80 กิโลเมตรขึ้นไป กิโลเมตรละละ 10.50 บาท")
+  quer = False
+elif khmr :
+  khm = int(input("ใส่ระยะทาง (กิโลเมตร) = "))
+  khmr = False
+  price = 0
+
+  if khm == 0:
+    open = True # 0 khm
+  else:
+    if khm == 1:
+      price += 35
+    else:
+      if khm >= 2 and khm <= 10:
+        price = khm * 5.5
+      elif khm >= 11 and khm <= 20:
+        price = khm * 6.50
+      elif khm >= 21 and khm <= 40:
+        price = khm * 7.50
+      elif khm >= 41 and khm <= 60:
+        price = khm * 8
+      elif khm >= 61 and khm <= 80:
+        price = khm * 9
+      else:
+        price = khm * 10.50
+      price += 35 # ผ่านมา 1 กิโล
+###############################################
+  if open : # 0 khm
+    price = price
+
+  print("\nค่าโดยสารที่ต้องจ่าย : ",price," bth")
