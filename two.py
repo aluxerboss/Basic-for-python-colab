@@ -154,10 +154,10 @@ print(line)
 
 
 # IF_Meter
-open, khmr, quer = False, False, False #เปิดปิดเงื่อนไข
+open, khmr, quer = False, False, False  #เปิดปิดเงื่อนไข
 
-quet = input("A = ถามราคา, B = คำนวณค่ามีเตอร์ โปรดระบุ : ")
-if quet == 'A' :
+quet = input("A = ถามราคา, B = คำนวณค่ามีเตอร์ โปรดระบุ : ") # Create a Quest
+if quet == 'A' : # if input 'A' quer = True
   quer = True
 elif quet == 'B':
   khmr = True
@@ -190,7 +190,7 @@ elif khmr :
         price = khm * 9
       else:
         price = khm * 10.50
-      price += 35 # ผ่านมา 1 กิโล
+      price += 35 # 1khm = 35 bth
 ###############################################
   if open : # 0 khm
     price = price
